@@ -20,8 +20,6 @@ const useStyles = makeStyles(()=> ({
     width: "100%",
     display:"block"
   },
-
-
 }))
 
   interface PetProps {

@@ -22,12 +22,13 @@ import { pets } from "../../../fakeData/fakeData";
     large: {
       width: theme.spacing(7),
       height: theme.spacing(7),
-      boxShadow:"0 0 3px #000"
+      boxShadow:"0 0 3px #000",
+      cursor:"pointer"
     },
   }));
 
 interface Props {
-  id: number
+  id: number,
 }
 
 
