@@ -5,4 +5,5 @@ export interface PetState {
   owners: PetOwner[];
   posts: Post[];
   groups: Group[];
+  currentPet: Pet;
 }

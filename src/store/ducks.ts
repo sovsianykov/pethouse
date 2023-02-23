@@ -7,7 +7,8 @@ const initialState: PetState = {
   pets: pets,
   posts: posts,
   owners: petOwners,
-  groups:[]
+  groups:[],
+  currentPet: pets[1]
 }
 
 const petsSlice = createSlice({

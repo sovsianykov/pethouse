@@ -3,7 +3,7 @@ import React from "react";
 
 export enum AppRoutes {
   Welcome='/' ,
-  Home='/home',
+  Home='/',
   About='/about',
   Cart= '/cart',
   Detail ='/product/:id',
