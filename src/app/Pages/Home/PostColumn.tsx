@@ -18,7 +18,7 @@ const PostColumn = () => {
   const classes = useStyles();
   const { posts } = useAppSelector((state) => state.petsReducer);
   return (
-    <Grid item md={6}>
+    <Grid item xs={6}>
       <Grid container className={classes.root}>
         {posts.map((post) => (
           <PostItem

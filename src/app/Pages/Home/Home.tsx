@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
-import { Grid } from "@material-ui/core";
+import { Container, Grid } from "@material-ui/core";
 import LeftColumn from "./LeftColumn";
 import PostColumn from "./PostColumn";
 import RightColumn from "./RightColumn";
@@ -18,11 +18,13 @@ const useStyles = makeStyles(()=> ({
 const Home = () => {
   const classes = useStyles()
   return (
-    <Grid container className={classes.root} spacing={2} >
-      <LeftColumn/>
-      <PostColumn/>
-      <RightColumn/>
-    </Grid>
+    <Container >
+      <Grid container className={classes.root} spacing={2} >
+        <LeftColumn/>
+        <PostColumn/>
+        <RightColumn/>
+      </Grid>
+    </Container>
   );
 };
 

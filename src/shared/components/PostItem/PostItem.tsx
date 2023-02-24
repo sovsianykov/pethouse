@@ -7,9 +7,10 @@ import {
   Card,
   CardActions,
   CardContent,
-  Grid,
-  Typography,
+  Grid, IconButton,
+  Typography
 } from "@material-ui/core";
+import { ThumbDownAltOutlined, ThumbUpAltOutlined } from "@material-ui/icons";
 
 interface PostProps {
   post: Post;
@@ -19,9 +20,9 @@ interface PostProps {
 
 const useStyles = makeStyles(() => ({
   root: {
-    margin: "10px 10px 20px 10px",
+    margin: 10,
     width: "100%",
-    minHeight: 400,
+    minHeight: 300,
   },
   title: {
     marginTop: 10,
@@ -36,12 +37,12 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const PostItem: FC<PostProps> = ({ post, onDisLike, onLike }) => {
+const PostItem: FC<PostProps> = ({ post }) => {
   const classes = useStyles();
   return (
     <Grid item md={12} className={classes.root}>
       <Card variant="outlined">
-        <CardContent>
+        <CardContent style={{paddingBottom:0}}>
           <Box className={classes.picWrapper}>
             <img src={post.image} alt={post.date} className={classes.image} />
           </Box>
@@ -62,6 +63,14 @@ const PostItem: FC<PostProps> = ({ post, onDisLike, onLike }) => {
           >
             Leave a comment
           </Button>
+          <IconButton style={{ color:"orange"}}>
+            <ThumbUpAltOutlined/>
+          </IconButton>
+          {post.likes}
+          <IconButton style={{ color:"orange"}}>
+            <ThumbDownAltOutlined/>
+          </IconButton>
+          {post.diLikes}
         </CardActions>
       </Card>
     </Grid>

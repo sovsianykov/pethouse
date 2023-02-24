@@ -1,10 +1,10 @@
-import { Comment, Pet, PetOwner, Post } from "../shared/models";
+import { Pet, PetOwner, Post } from "../shared/models";
 
 export const pets: Pet[] = [
   {
     id: 1,
     type: "cat",
-    name: "Max",
+    name: "Max Bukowsky",
     description:
       "There are many different breeds of cats, including Abyssinian, Himalayan, Maine Coon, Manx, Persian, Scottish Fold, and Siamese, to name a few. The Cat Fanciers’ Association, which is the world’s largest registry of pedigreed cats, recognizes about 40 distinct breeds. The most familiar cats are the domestic shorthair and the domestic longhair, which are really mixtures of different breeds. Cat breeds differ in looks, coat length, and other characteristics but vary relatively little in size. On average, only 5 to 10 pounds separate the smallest and largest domestic breeds of cats.",
     image:
@@ -14,12 +14,12 @@ export const pets: Pet[] = [
   {
     id: 2,
     type: "cat",
-    name: "Michael",
+    name: "Michael Man",
     description:
       "There are many different breeds of cats, including Abyssinian, Himalayan, Maine Coon, Manx, Persian, Scottish Fold, and Siamese, to name a few. The Cat Fanciers’ Association, which is the world’s largest registry of pedigreed cats, recognizes about 40 distinct breeds. The most familiar cats are the domestic shorthair and the domestic longhair, which are really mixtures of different breeds. Cat breeds differ in looks, coat length, and other characteristics but vary relatively little in size. On average, only 5 to 10 pounds separate the smallest and largest domestic breeds of cats.",
     image:
       "data:image/jpeg;base64,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",
-    friendsId: [2, 3, 4],
+    friendsId: [1, 3, 4],
   },
   {
     id: 3,
@@ -29,19 +29,51 @@ export const pets: Pet[] = [
       "There are many different breeds of cats, including Abyssinian, Himalayan, Maine Coon, Manx, Persian, Scottish Fold, and Siamese, to name a few. The Cat Fanciers’ Association, which is the world’s largest registry of pedigreed cats, recognizes about 40 distinct breeds. The most familiar cats are the domestic shorthair and the domestic longhair, which are really mixtures of different breeds. Cat breeds differ in looks, coat length, and other characteristics but vary relatively little in size. On average, only 5 to 10 pounds separate the smallest and largest domestic breeds of cats.",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVE2_Pq1FO83C7GeJHGcIewHuHvCzuuDwNsg&usqp=CAU",
-    friendsId: [2, 4],
+    friendsId: [2,1, 4],
   },
   {
     id: 4,
     type: "bird",
-    name: "sara",
+    name: "Sara Konrad",
     description:
       "There are many different breeds of birds, including Abyssinian, Himalayan, Maine Coon, Manx, Persian, Scottish Fold, and Siamese, to name a few. The Cat Fanciers’ Association, which is the world’s largest registry of pedigreed cats, recognizes about 40 distinct breeds. The most familiar cats are the domestic shorthair and the domestic longhair, which are really mixtures of different breeds. Cat breeds differ in looks, coat length, and other characteristics but vary relatively little in size. On average, only 5 to 10 pounds separate the smallest and largest domestic breeds of cats.",
     image:
       "https://cdn.photovaliant.com/wp-content/uploads/2016/07/Nikon-200-500-crop-ABC_8964.jpg",
     friendsId: [2, 3, 1],
   },
+  {
+    id: 5,
+    type: "bird",
+    name: "Jim",
+    description:
+      "There are many different breeds of birds, including Abyssinian, Himalayan, Maine Coon, Manx, Persian, Scottish Fold, and Siamese, to name a few. The Cat Fanciers’ Association, which is the world’s largest registry of pedigreed cats, recognizes about 40 distinct breeds. The most familiar cats are the domestic shorthair and the domestic longhair, which are really mixtures of different breeds. Cat breeds differ in looks, coat length, and other characteristics but vary relatively little in size. On average, only 5 to 10 pounds separate the smallest and largest domestic breeds of cats.",
+    image:
+       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn9ROyD4c7WgP2yGeB6jSz4hDzw1ZybdxelA&usqp=CAU",
+    friendsId: [6, 3, 1],
+  },
+  {
+    id: 6,
+    type: "dog",
+    name: "Arnold",
+    description:
+      "There are many different breeds of birds, including Abyssinian, Himalayan, Maine Coon, Manx, Persian, Scottish Fold, and Siamese, to name a few. The Cat Fanciers’ Association, which is the world’s largest registry of pedigreed cats, recognizes about 40 distinct breeds. The most familiar cats are the domestic shorthair and the domestic longhair, which are really mixtures of different breeds. Cat breeds differ in looks, coat length, and other characteristics but vary relatively little in size. On average, only 5 to 10 pounds separate the smallest and largest domestic breeds of cats.",
+    image:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAjCIB493SKOv3HJPzF9Bw9sOwAGMtKgYb6A&usqp=CAU",
+    friendsId: [2, 4, 1],
+  },
+  {
+    id: 7,
+    type: "dog",
+    name: "Ocean",
+    description:
+      "There are many different breeds of birds, including Abyssinian, Himalayan, Maine Coon, Manx, Persian, Scottish Fold, and Siamese, to name a few. The Cat Fanciers’ Association, which is the world’s largest registry of pedigreed cats, recognizes about 40 distinct breeds. The most familiar cats are the domestic shorthair and the domestic longhair, which are really mixtures of different breeds. Cat breeds differ in looks, coat length, and other characteristics but vary relatively little in size. On average, only 5 to 10 pounds separate the smallest and largest domestic breeds of cats.",
+    image:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJSU64WyrnbnshCjNVdPivOtCLmGsaM1SYwg&usqp=CAU",
+    friendsId: [2, 3, 1],
+  },
+
 ];
+
 
 export const petOwners: PetOwner[] = [
   {
@@ -69,8 +101,8 @@ export const posts: Post[] = [
     image:
        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtVFzx_4TFC_CkaQh2tdupyiQtSz90fM7yAw&usqp=CAU",
     description: "amazing!!!!",
-    likes: 34,
-    diLikes: 3,
+    likes: 4,
+    diLikes: 0,
     date: Date.now().toString(),
     comments: ["great Job"],
   },

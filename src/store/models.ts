@@ -6,4 +6,5 @@ export interface PetState {
   posts: Post[];
   groups: Group[];
   currentPet: Pet;
+  searchQuery: string;
 }

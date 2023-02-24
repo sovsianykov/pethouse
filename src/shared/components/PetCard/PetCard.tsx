@@ -1,8 +1,7 @@
 import React, { FC } from "react";
 import { makeStyles } from "@material-ui/styles";
 import { Pet } from "../../models";
-import { Box, Grid } from "@material-ui/core";
-import PetAvatar from "../PetAvatar/PetAvatar";
+import { Box } from "@material-ui/core";
 
 const useStyles = makeStyles(()=> ({
   root: {

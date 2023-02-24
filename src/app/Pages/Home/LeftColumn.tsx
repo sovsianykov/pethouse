@@ -1,8 +1,7 @@
 import React, { useCallback } from "react";
 import { makeStyles } from "@material-ui/styles";
-import { Box, Grid, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import PetCard from "../../../shared/components/PetCard/PetCard";
-import { pets } from "../../../fakeData/fakeData";
 import PetAvatar from "../../../shared/components/PetAvatar/PetAvatar";
 import { useAppDispatch, useAppSelector } from "../../app/hooks/useAppDispatch";
 import { setCurrentPet } from "../../../store/ducks";
@@ -17,7 +16,7 @@ const useStyles = makeStyles(() => ({
   },
   avatarsBlock: {
     display: "flex",
-    marginTop: "5px auto 0 auto",
+    margin: "5px auto",
     width: "90%",
     height: 60,
     borderRadius: 7,
@@ -51,7 +50,7 @@ const LeftColumn = () => {
     dispatch(setCurrentPet(id))
   }, [dispatch]);
   return (
-    <Grid item md={3}>
+    <Grid item xs={3}>
       <Grid
         container
         className={classes.root}
