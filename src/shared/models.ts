@@ -21,12 +21,15 @@ export interface Post {
   likes?: number;
   diLikes?: number;
   date: string;
-  comments?: string[];
+  comments?: Comment[];
 }
+
 export interface Comment {
-  id:number;
-  author:Pet;
-  title: string;
+  id?:number | string;
+  postId: number,
+  description:string,
+  author: string
+
 }
 
 export interface Group {

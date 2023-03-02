@@ -1,8 +1,9 @@
-import React from "react";
+import React, { memo, useCallback  } from "react";
 import { makeStyles } from "@material-ui/styles";
 import { Grid } from "@material-ui/core";
-import { useAppSelector } from "../../app/hooks/useAppDispatch";
+import { useAppDispatch, useAppSelector } from "../../app/hooks/useAppDispatch";
 import PostItem from "../../../shared/components/PostItem/PostItem";
+import { addDisLikes, addLikes } from "../../../store/ducks";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -17,14 +18,25 @@ const useStyles = makeStyles(() => ({
 const PostColumn = () => {
   const classes = useStyles();
   const { posts } = useAppSelector((state) => state.petsReducer);
+
+  const dispatch = useAppDispatch();
+
+  const onLikesHandler = useCallback((id:number) =>{
+    dispatch(addLikes(id))
+  },[dispatch])
+
+  const onDisLikesHandler = useCallback((id:number) =>{
+    dispatch(addDisLikes(id)!)
+  },[dispatch])
+
   return (
     <Grid item xs={6}>
       <Grid container className={classes.root}>
         {posts.map((post) => (
           <PostItem
             post={post}
-            onDisLike={() => null}
-            onLike={() => null}
+            onDisLike={onDisLikesHandler}
+            onLike={onLikesHandler}
             key={post.id}
           />
         ))}
@@ -33,4 +45,4 @@ const PostColumn = () => {
   );
 };
 
-export default PostColumn;
+export default memo(PostColumn);

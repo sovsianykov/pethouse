@@ -18,7 +18,7 @@ export const Search = () => {
     dispatch(setSearchQuery(name))
   },[dispatch,name])
   return (
-    <Box style={{ width: "100%" ,height:40}}>
+    <Box width='100%'>
       <form onSubmit={onSubmitHandler}>
           <TextField
             onChange={onChangeHandler}

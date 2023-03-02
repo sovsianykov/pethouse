@@ -3,7 +3,7 @@ import petsReducer from './ducks'
 
 export const store = configureStore({
   reducer: {
-      petsReducer,
+    petsReducer,
   },
 })
 

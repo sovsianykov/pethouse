@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, memo, useCallback, useState } from "react";
 import { Post } from "../../models";
 import { makeStyles } from "@material-ui/styles";
 import {
@@ -6,11 +6,14 @@ import {
   Button,
   Card,
   CardActions,
-  CardContent,
+  CardContent, Collapse, Divider,
   Grid, IconButton,
   Typography
 } from "@material-ui/core";
 import { ThumbDownAltOutlined, ThumbUpAltOutlined } from "@material-ui/icons";
+import { useAppSelector } from "../../../app/app/hooks/useAppDispatch";
+import { NewComment } from "../../../features/NewComment/NewComment";
+import { CommentsList } from "../Comment";
 
 interface PostProps {
   post: Post;
@@ -37,8 +40,24 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const PostItem: FC<PostProps> = ({ post }) => {
+const PostItem: FC<PostProps> = ({ post,onLike,onDisLike }) => {
   const classes = useStyles();
+
+  const { name } = useAppSelector(state => state.petsReducer.currentPet)
+
+  const [ openNewComment, setOpenNewComment] = useState(false)
+
+  const addLikesHandler = useCallback(() =>{
+    onLike(post.id)
+  },[onLike,post.id])
+
+  const addDisLikesHandler = useCallback(() =>{
+    onDisLike(post.id)
+  },[onDisLike,post.id])
+
+  const onOpenHandler = useCallback(() =>{
+    setOpenNewComment(openNewComment => !openNewComment)
+  },[])
   return (
     <Grid item md={12} className={classes.root}>
       <Card variant="outlined">
@@ -53,6 +72,8 @@ const PostItem: FC<PostProps> = ({ post }) => {
           >
             {post.description}
           </Typography>
+          <Divider/>
+          <CommentsList comments={post.comments!}/>
         </CardContent>
         <CardActions>
           <Button
@@ -60,21 +81,25 @@ const PostItem: FC<PostProps> = ({ post }) => {
             color="primary"
             size="small"
             style={{ color: "#fff" }}
+            onClick={onOpenHandler}
           >
             Leave a comment
           </Button>
-          <IconButton style={{ color:"orange"}}>
+          <IconButton style={{ color:"orange"}} onClick={addLikesHandler}>
             <ThumbUpAltOutlined/>
           </IconButton>
           {post.likes}
-          <IconButton style={{ color:"orange"}}>
+          <IconButton style={{ color:"orange"}} onClick={addDisLikesHandler}>
             <ThumbDownAltOutlined/>
           </IconButton>
           {post.diLikes}
         </CardActions>
+        <Collapse in={openNewComment}>
+          <NewComment post={post} author={name} onClick={() => setOpenNewComment(false)}/>
+        </Collapse>
       </Card>
     </Grid>
   );
 };
 
-export default PostItem;
+export default memo(PostItem);
